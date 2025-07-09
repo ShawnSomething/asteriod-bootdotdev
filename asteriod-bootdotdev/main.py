@@ -41,6 +41,12 @@ def main():
         for shot in shots:
             shot.update(dt)
             shot.draw(screen)
+        
+        for asteriod in asteroids:
+            for shot in shots:
+                if asteriod.collision(shot):
+                    asteriod.kill()
+                    shot.kill()
 
         screen.fill("black")
         for obj in drawable:
